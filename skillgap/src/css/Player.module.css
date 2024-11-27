@@ -1,0 +1,78 @@
+.gridContainer {
+	padding: 3em !important;
+	border-radius: 0.75em;
+	display: grid;
+	grid-template-columns: max-content 1fr 1fr 1fr max-content;
+	background-color: var(--sgCard);
+	gap: 1.5em;
+	color: white;
+	box-sizing: border-box;
+	padding: 8em;
+	justify-content: center;
+	align-content: start;
+}
+.card {
+	background-color: var(--sgCard);
+	border-radius: 0.75em;
+	overflow: hidden;
+	scroll-snap-type: y mandatory;
+	box-shadow: 0px 8px 5px 4px rgba(0, 0, 0, 0.068);
+	scroll-behavior: smooth;
+	display: flex;
+	color: white;
+	gap: 1em;
+	box-sizing: border-box;
+	padding: 1.5em;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+	font-size: small;
+	align-self: stretch;
+}
+.card > * {
+	margin: 0.5em;
+}
+.card h1{
+	width: min-content;
+	white-space: nowrap;
+}
+.card:not(.first) h1
+{
+	font-size: 3em;
+}
+.card:not(.first) h2
+{
+	display: flex;
+	justify-content: space-between;
+}
+.gridContainer::-webkit-scrollbar {
+	display: none;
+}
+.small{
+	width: 100%!important;
+}
+a.card{
+	transition: scale 300ms ease;
+}
+a.card:hover{
+	scale: 1.01;
+}
+
+.em{
+	margin: 1em;
+}
+
+.first{
+	flex-direction: row;
+	font-size: normal;
+}
+
+.card:not(.first) > div:first-child{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 4em;
+}
+.first{
+	font-size: large;
+}

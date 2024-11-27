@@ -1,0 +1,12 @@
+.buttoN{
+    all: unset;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 12.5px;
+    right: 30px;
+}
+input{
+    width: 100%;
+    box-sizing: border-box;
+}

@@ -1,0 +1,49 @@
+.container {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(18.5rem, 1fr));
+	background-color: var(--sgBackground);
+	gap: 1.5em;
+	color: white;
+	box-sizing: border-box;
+	padding: 8em;
+	justify-content: center;
+	align-content: center;
+	width: min(100%, 1920px);
+}
+.championCard {
+	background-color: var(--sgCard);
+	font-size: 12px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 1.2em;
+	transition: scale 300ms ease;
+	padding: 2em;
+	transform-origin: center;
+	will-change: scale;
+	transform: translateZ(0);
+	perspective: 1px;
+	background-color: rgba(0, 0, 0, 0.432);
+	background-blend-mode: overlay;
+	min-height: 10rem;
+}
+.championCard:hover {
+	scale: 1.05;
+}
+.championCard > * {
+	text-shadow: 1px 1px 25px rgba(0, 0, 0, 0.534);
+	backface-visibility: hidden;
+}
+.championCard h1 {
+	color: var(--sgRed-500);
+	font-size: 3.25em;
+	white-space: normal;
+	text-align: center;
+    font-weight: 700;
+}

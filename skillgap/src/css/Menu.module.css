@@ -1,0 +1,84 @@
+.burger {
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin: 1em;
+	text-decoration: none;
+	color: var(--sgRed-500);
+	font-size: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.25em;
+	cursor: pointer;
+	z-index: 999;
+}
+
+span {
+	width: 56px;
+	height: 8px;
+	border-radius: 7px;
+	background-color: var(--sgRed-500);
+	transition: all 350ms ease;
+}
+
+.clicked > span {
+	background-color: white;
+}
+.clicked > span:nth-child(2) {
+	rotate: 45deg;
+}
+
+.clicked > span:first-child {
+	rotate: -45deg;
+	translate: 0 17.25px;
+}
+.clicked > span:nth-child(3) {
+	rotate: -45deg;
+	translate: 0 -17.25px;
+	opacity: 0;
+}
+
+.menu {
+	transition: all 400ms ease;
+	width: 360px;
+	height: 100vh;
+	background-color: #121212;
+	position: fixed;
+	top: 0;
+	left: 0;
+    overflow: hidden;
+    z-index: 998;
+}
+.menu h1 {
+	position: relative;
+	font-size: 1.75em;
+	top: 42.5px;
+	left: 120px;
+}
+.hide {
+	opacity: 0;
+	pointer-events: none;
+}
+.linkContainer{
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5em;
+    padding: 1em;
+    box-sizing: border-box;
+    width: 250px;
+    font-size: 1.25em;
+    font-weight: 300;
+}
+.linkContainer:hover{
+	color: var(--sgRed-400);
+}
+
+header {
+	width: 100%;
+	background-color: var(--sgRed-500);
+	height: 120px;
+}

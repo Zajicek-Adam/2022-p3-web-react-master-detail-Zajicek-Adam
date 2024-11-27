@@ -1,0 +1,62 @@
+.gridContainer{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color: var(--sgBackground);
+    gap: 2em;
+    color: white; 
+    box-sizing: border-box;
+
+    padding: 2em 8em;
+
+    justify-content: center;
+    align-content: center;
+}
+.card{
+    background-color: var(--sgCard);
+
+    border-radius: 0.75em;
+
+    overflow: hidden;
+    scroll-snap-type: y mandatory;
+	box-shadow: 0px 8px 5px 4px rgba(0, 0, 0, 0.068);
+    scroll-behavior: smooth;
+}
+.card::-webkit-scrollbar{
+    display: none;
+  }
+.matchHistory{
+    grid-column: span 5;
+    overflow-y: scroll;
+
+}
+.matchHistory > *{
+    scroll-snap-align: start;
+}
+.lastChild{
+    border-bottom: none;
+}
+.otherChildren{
+    border-bottom: 8px solid var(--sgBackground)
+}
+.victory{
+    color: var(--sgBlue);
+}
+.defeat{
+    color: var(--sgRed-400);
+}
+h2, h3, h4{
+    margin: 0;
+}
+h4{
+    color: var(--sgFade);
+}
+@media only screen and (min-width: 1920px){
+    .gridContainer{
+        padding: 5em 8em;
+    }
+}

@@ -1,0 +1,15 @@
+.container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    background-color: var(--sgBackground);
+    color: white;
+    box-sizing: border-box;
+    justify-content: center;
+    align-content: center;
+}
+a{
+    text-decoration: none;
+	color: unset;
+}
