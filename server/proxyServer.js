@@ -11,14 +11,29 @@ const API_KEY = process.env.API_KEY;
 
 //get basic profile info
 
-async function getPlayer(playerName) {
+async function getRiotAccountByNameTag(playerName, playerTag) {
 	try {
 		return await axios
 			.get(
-				"https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" +
-					playerName +
-					"?api_key=" +
-					API_KEY
+				`https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${playerTag}?api_key=${API_KEY}`
+			)
+			.then((response) => {
+				if (response.status == 200) {
+					return response.data.puuid;
+				} else {
+					throw new Error("Player not found");
+				}
+			});
+	} catch (Error) {
+		return "NotFound";
+	}
+}
+
+async function getSummonerByRiotAccount(puuid, region) {
+	try {
+		return await axios
+			.get(
+				`https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY}`
 			)
 			.then((response) => {
 				if (response.status == 200) {
@@ -51,12 +66,12 @@ app.get("/getPlayerRank", async (req, res) => {
 	const returnArray =
 		rank[0] !== undefined
 			? [
-					rank[0].tier,
-					rank[0].rank,
-					rank[0].leaguePoints,
-					rank[0].wins,
-					rank[0].losses,
-			  ]
+				rank[0].tier,
+				rank[0].rank,
+				rank[0].leaguePoints,
+				rank[0].wins,
+				rank[0].losses,
+			]
 			: ["UNRANKED", "", "", "", ""];
 
 	console.log(returnArray);
@@ -99,9 +114,9 @@ app.get("/getMatches", async (req, res) => {
 		const matchData = await axios
 			.get(
 				"https://europe.api.riotgames.com/lol/match/v5/matches/" +
-					matchID +
-					"?api_key=" +
-					API_KEY
+				matchID +
+				"?api_key=" +
+				API_KEY
 			)
 			.then((response) => response.data)
 			.catch((err) => err);
@@ -137,7 +152,7 @@ app.get("/getChallengers", async (req, res) => {
 		.catch((err) => {
 			return err;
 		});
-	
+
 	const entries = Object.values(returnedObject)[4];
 
 	res.json(entries);
